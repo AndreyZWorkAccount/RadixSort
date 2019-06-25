@@ -1,11 +1,18 @@
 package sortStructures
 
-type IntKeySource interface {
-	intKey() int
+type Int struct{
+	Val int
 }
 
-type Int int
+//SortKey<Int>
+func (x Int) Digit(exp int) int{
+	return (x.Val/exp)%10
+}
 
-func (x *Int) intKey() int {
-	return int(*x)
+func (x Int) IntKey() int{
+	return x.Val
+}
+
+func (x Int) String() string{
+	return string(x.Val)
 }
